@@ -39,10 +39,10 @@ module.exports = function(grunt) {
       },
       livereload: {
         options: {
-          open: true,
+          // open: true,
           base: '<%= app.dev %>'
         }
-      },
+      }/*,
       test: {
         options: {
           base: [
@@ -50,17 +50,17 @@ module.exports = function(grunt) {
             '<%= app.dev %>'
           ]
         }
-      }
+      }*/
     },
 
-    mocha: {
-      all: {
-        options: {
-          run: true,
-          urls: [ 'http://<%= connect.test.options.hostname %>:<%= connect.test.options.port %>/index.html' ]
-        }
-      }
-    },
+    // mocha: {
+    //   all: {
+    //     options: {
+    //       run: true,
+    //       urls: [ 'http://<%= connect.test.options.hostname %>:<%= connect.test.options.port %>/index.html' ]
+    //     }
+    //   }
+    // },
 
     less: {
       options: {
@@ -104,12 +104,13 @@ module.exports = function(grunt) {
     }
   });
 
-  grunt.registerTask('test', [
-    'connect:test',
-    'mocha'
-  ]);
+  // grunt.registerTask('test', [
+  //   'connect:test',
+  //   'mocha'
+  // ]);
 
   grunt.registerTask('server', [
+    'less:dev',
     'connect:livereload',
     'watch'
   ]);
